@@ -55,6 +55,9 @@ dependencies {
 			"org.apache.shiro:shiro-web:$shiroVersion"
 			)	
 
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.5'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
+	
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:21.0'
 
