@@ -3,7 +3,7 @@ package use.cache.springDataRedis.redis;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-public interface IRedisReadInfo <T>{
+public interface IRedisReadInfo <T> {
 
 	T readInfo();
 
