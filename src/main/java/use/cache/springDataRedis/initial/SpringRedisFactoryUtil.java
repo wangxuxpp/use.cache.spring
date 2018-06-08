@@ -6,8 +6,8 @@ import use.cache.springDataRedis.common.SpringRedisConfigureJedis;
 import use.cache.springDataRedis.common.SpringRedisConfigureLettuce;
 import use.cache.springDataRedis.common.SpringRedisConnectFactoryInital;
 import use.cache.springDataRedis.conf.RedisPoolParameter;
-import use.common.util.Util;
 import use.common.util.single.ISingleCreateObject;
+import use.common.util.single.SingleCreateObject;
 
 public class SpringRedisFactoryUtil 
 {
@@ -35,7 +35,7 @@ public class SpringRedisFactoryUtil
 	public static RedisPoolParameter getConfigure()
 	{
 
-		fcon = Util.singleCreate(fcon, RedisPoolParameter.class, new ISingleCreateObject<RedisPoolParameter>(){
+		fcon = SingleCreateObject.singleCreate(fcon, RedisPoolParameter.class, new ISingleCreateObject<RedisPoolParameter>(){
 
 			@Override
 			public RedisPoolParameter createObject() {
