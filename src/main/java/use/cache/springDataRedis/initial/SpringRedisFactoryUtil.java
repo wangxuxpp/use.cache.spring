@@ -9,7 +9,7 @@ import use.cache.springDataRedis.conf.RedisPoolParameter;
 
 public class SpringRedisFactoryUtil 
 {
-	private static RedisPoolParameter fcon = null;
+	private volatile static RedisPoolParameter fcon = null;
 	
 	private static RedisConnectionFactory mem = null;
 	private static RedisConnectionFactory mem1 = null;
@@ -34,8 +34,14 @@ public class SpringRedisFactoryUtil
 	{
 		if(fcon == null)
 		{
-			fcon = new RedisPoolParameter();
-			fcon.readParameter();
+			synchronized(SpringRedisFactoryUtil.class)
+			{
+				if(fcon == null)
+				{
+					fcon = new RedisPoolParameter();
+					fcon.readParameter();
+				}
+			}
 		}
 		return fcon;
 	}
