@@ -6,14 +6,16 @@ import use.cache.springDataRedis.common.SpringRedisConfigureJedis;
 import use.cache.springDataRedis.common.SpringRedisConfigureLettuce;
 import use.cache.springDataRedis.common.SpringRedisConnectFactoryInital;
 import use.cache.springDataRedis.conf.RedisPoolParameter;
+import use.common.util.Util;
+import use.common.util.single.ISingleCreateObject;
 
 public class SpringRedisFactoryUtil 
 {
 	private volatile static RedisPoolParameter fcon = null;
 	
-	private static RedisConnectionFactory mem = null;
-	private static RedisConnectionFactory mem1 = null;
-	private static RedisConnectionFactory mem2 = null;
+	private volatile static RedisConnectionFactory mem = null;
+	private volatile static RedisConnectionFactory mem1 = null;
+	private volatile static RedisConnectionFactory mem2 = null;
 
 	public static void lettuceConnection()
 	{
@@ -32,17 +34,17 @@ public class SpringRedisFactoryUtil
 
 	public static RedisPoolParameter getConfigure()
 	{
-		if(fcon == null)
-		{
-			synchronized(SpringRedisFactoryUtil.class)
-			{
-				if(fcon == null)
-				{
-					fcon = new RedisPoolParameter();
-					fcon.readParameter();
-				}
+
+		fcon = Util.singleCreate(fcon, RedisPoolParameter.class, new ISingleCreateObject<RedisPoolParameter>(){
+
+			@Override
+			public RedisPoolParameter createObject() {
+				RedisPoolParameter p = new RedisPoolParameter();
+				p.readParameter();
+				return p;
 			}
-		}
+			
+		});
 		return fcon;
 	}
 	

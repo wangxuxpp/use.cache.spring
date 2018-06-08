@@ -20,7 +20,7 @@ import org.springframework.data.redis.cache.RedisCacheWriter;
 public class CacheManagerOperation {
 
 	protected final static Logger log = LoggerFactory.getLogger(CacheManagerOperation.class);
-	private static AbstractCacheManager fCache = null;
+	private volatile static AbstractCacheManager fCache = null;
 	
 	public static final String defaultCache = "default";
 	public static final String secondCache = "redisDataBaseSecondName";
