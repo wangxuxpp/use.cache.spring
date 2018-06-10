@@ -9,7 +9,7 @@ import org.apache.shiro.cache.CacheException;
  * 
  * 项目名称:use.cache.spring
  * 类型名称:IMemoryStorage
- * 类型描述:
+ * 类型描述:abc
  * 作者:wx
  * 创建时间:2018年6月10日
  * @version:
