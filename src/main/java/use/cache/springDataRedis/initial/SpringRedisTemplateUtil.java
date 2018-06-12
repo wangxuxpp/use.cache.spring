@@ -18,7 +18,7 @@ public class SpringRedisTemplateUtil {
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());  
         redisTemplate.setHashValueSerializer(new StringRedisSerializer());  
         redisTemplate.setConnectionFactory(jcf);  
-        redisTemplate.setEnableTransactionSupport(true);
+        redisTemplate.setEnableTransactionSupport(false);
         redisTemplate.afterPropertiesSet();
         
         return redisTemplate;  
@@ -32,7 +32,7 @@ public class SpringRedisTemplateUtil {
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());  
         redisTemplate.setHashValueSerializer(new JdkSerializationRedisSerializer());  
         redisTemplate.setConnectionFactory(jcf);  
-        redisTemplate.setEnableTransactionSupport(true);
+        redisTemplate.setEnableTransactionSupport(false);
         redisTemplate.afterPropertiesSet();
         return redisTemplate;  
     } 

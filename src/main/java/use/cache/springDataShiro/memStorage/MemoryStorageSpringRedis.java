@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.shiro.cache.CacheException;
 import org.springframework.data.redis.cache.RedisCache;
-import org.springframework.data.redis.core.RedisConnectionUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import use.cache.springDataRedis.initial.CacheManagerOperation;
@@ -53,7 +52,7 @@ public class MemoryStorageSpringRedis implements IMemoryStorage {
 			return rt.opsForValue().get(key);
 		}finally
 		{
-			RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
+			//RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
 		}
 	}
 
@@ -74,7 +73,7 @@ public class MemoryStorageSpringRedis implements IMemoryStorage {
 			return rt.delete(key);
 		}finally
 		{
-			RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
+			//RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
 		}
 	}
 
@@ -90,7 +89,7 @@ public class MemoryStorageSpringRedis implements IMemoryStorage {
 			return rt.keys("*").size();
 		}finally 
 		{
-			RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
+			//RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
 		}
 	}
 
@@ -102,7 +101,7 @@ public class MemoryStorageSpringRedis implements IMemoryStorage {
 			return rt.keys(key);
 		}finally
 		{
-			RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
+			//RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
 		}
 	}
 
@@ -113,7 +112,7 @@ public class MemoryStorageSpringRedis implements IMemoryStorage {
 			return rt.keys(key);
 		}finally
 		{
-			RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
+			//RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
 		}
 	}
 
@@ -132,7 +131,7 @@ public class MemoryStorageSpringRedis implements IMemoryStorage {
 			return  value;
 		} finally
 		{
-			RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
+			//RedisConnectionUtils.unbindConnection(rt.getConnectionFactory());
 		}
 		
 	}

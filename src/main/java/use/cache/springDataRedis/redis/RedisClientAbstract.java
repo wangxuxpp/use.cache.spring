@@ -53,7 +53,7 @@ public abstract class RedisClientAbstract {
 			return getRedisTemplate().opsForValue().get(key);
 		}finally
 		{
-			RedisConnectionUtils.unbindConnection(getRedisTemplate().getConnectionFactory());
+			//RedisConnectionUtils.unbindConnection(getRedisTemplate().getConnectionFactory());
 		}
 	}
 	
@@ -82,7 +82,7 @@ public abstract class RedisClientAbstract {
 			return  value;
 		} finally
 		{
-			RedisConnectionUtils.unbindConnection(getRedisTemplate().getConnectionFactory());
+			//RedisConnectionUtils.unbindConnection(getRedisTemplate().getConnectionFactory());
 		}
 	}
 	
@@ -131,7 +131,7 @@ public abstract class RedisClientAbstract {
 			return (T)r;
 		} finally
 		{
-			RedisConnectionUtils.unbindConnection(getRedisTemplate().getConnectionFactory());
+			//RedisConnectionUtils.unbindConnection(getRedisTemplate().getConnectionFactory());
 		}
 	}
 }
